@@ -8,6 +8,34 @@
 
 DEPLAY AN API FOR REAL-TIME DATA : USE AZURE API MANAGEMENT
 CONNECT API TO EVENT HUBS,IOT HUB,OR A LIVE DATABASE
-INGEST DATA 
+PUSH DATASET API: SEND REAL-TIME DATA DIRECTLY TO POWER BI(CITY HUMIDITY)
+STREAMING DATASET: DISPLAYS DATA IN REALTIME
+CONNECT TO POWERBI.COM AND REAL TIME DATA SET UPDATED
+STREAMI DATA SET OPEN 1-API 2. AZURE 3.PUBNUB
+EMBED DASHBOARD IN A WEB APPLICATION USING POWER BI
+I AM USING FREE TRIAL POWERBI REAL TIME DATABASE 
+SUPPORTS POWER BI REPORTS DASHBOARDS
+WINDOW POWERSHELL USING THIS COODE-
+      $endpoint = "https://api.powerbi.com/beta/9c190d5b-9405-4465-8642-0d75bee7f01e/datasets/efd621ab-0cf9-40b0-ae8c-daedd0be2a94/rows?experience=power-bi&key=TX4DHGCVPI1Vhk%2BCkywBWAxm0%2Bb6OwNAgS8aQ9WesUgSl61vI9Q%2F3v6FnqE%2FcaZzH14GxotU4B2wHLUjHLdgLg%3D%3D"
+
+
+while($true)
+{
+
+
+$x = Get-Random -minimum 1 -maximum 100
+$y =(Get-Date).TouniversalTime().Tostring("yyyy-MM-ddTHH:mm:ss")
+
+
+$payload = @{
+"humidity" = $x
+"city" ="city dashboard"
+"Date time" = $y
+}
+Invoke-RestMethod -Method Post -Uri "$endpoint" -Body (ConvertTo-Json @($payload))
+start-sleep 1
+
+}
+
 
   
